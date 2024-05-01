@@ -1,0 +1,52 @@
+Para acessar sua máquina virtual pelo git = na área de trabalho ( inicial do seu computador, dar um git bash) e depois digitar ssh ubuntu@ip da máquina virtual( ir no oracle,ir em instâncias, entrar na sua e clicar para copiar o ip público ),e pronto. 
+htop = para ver como a máquina está( visualizar em tempo real o andamento da bicha ).
+voltar para o git.
+sudo apt update = atualiza a máquina com o ubuntu.
+**Ping baixo = conexão boa( latência )
+sudo apt install apache2 = instala os pacotes remanescentes . ( sei lá na real, mas funcionou.)
+sudo apt install firewalld = liberar dentro do servidor( a permissão para os outros entrarem, eu acho).
+sudo firewall-cmd --zone=public --permanent --add-port=80/tcp = habilita a porta 80 ( HTTP ).
+sudo firewall-cmd --zone=public --permanent --add-port=443/tcp = HABILITA A PORTA 443 ( HTTPS ).
+sudo firewall-cmd --reload = recarrega as permissões( Para permitir conectar ).
+
+**Para acessar sua máquina virtual = ssh ubuntu@( IP da  máquina virtual = ir no oracle,ir em instâncias, entrar na sua e clicar para copiar o ip público).
+Comandos :
+cd para entrar nos diretórios( pastas ) = cd /var depois cd www e depois cd html.
+ls = lista( mostra ) o que tem dentro ( aperte e entenderá).
+ls -la = listagem detalhada ( mostra o grupo de permisão do contesto atual, mostra o grupo de permissão fora da pasta )
+**root é o usuário admin do sistema linux( o mais poderoso).
+** sudo chown ubuntu:ubuntu -Rf( vai fazer a pasta e tudo que está dentro mudar a permissão ) nome da pasta ( estou na pasta html atualmente ) = para alterar as permissões sem o comando sudo ( irá mudar o owner( dono do arquivo))
+**COMANDO DE CIMA POR COMPLETO = sudo chown ubuntu:ubuntu -Rf html ( aperte enter e aparentemente não mostrará nada mas aconteceu as mudanças ).
+**Para editar o arquivo html no terminal terá que instalar o programa vim( comando para a instalação abaixo ).
+sudo apt install vim.
+com o comando acima, você poderá editar o arquivo usando o comando **( não colocar os asteríscos) vim index.html.
+Apertar a letra ' d ' para apagar o arquivo html ( segurar o botão até o final .) e depois apertar a letra ' i ' ( ou control i ) para inserir algo no arquivo.
+
+*Para instalar o PHP, comandos : 
+sudo apt update
+sudo apt -y install software-properties-common
+sudo add-apt-repository ppa:ondrej/php e apertar enter ( pq vai pedir ).
+sudo apt update
+sudo apt install php8.3 php8.3-common php8.3-mbstring php8.3-xml php8.3-mysql php8.3-curl php8.3-gd
+
+**Criar arquivo php = Você deve estar no seu servidor virtual( no git), estar neste caminho var/www/html ou dar estes comandos :
+cd var/www/html.
+Criar um arquivo = touch memory.php.
+comando vim memory.php.
+colar este código :
+
+<?php
+$memoryUsage = 50 * 1024 * 1024; // 200 MB in bytes
+$largeString = str_repeat("a", $memoryUsage);
+
+echo "Memory usage: approximately " . (memory_get_usage() / 1024 / 1024 ) . " mb\n";
+
+sleep(10);
+
+unset($largeString);
+
+echo "Finish\n\nMemory usage: approximately " . ( memory_get_usage() / 1024 / 1024) . " MB\n";
+dar um esc e digitar :wq para adicionar o conteúdo.
+dar um htop no terminal.( irá aparecer os gráficos ).
+ir no oracle, pegar o ip da sua instância, abrir nova guia e colar **obs : colar os números e junto com eles digitar /memory.php
+É isso .
