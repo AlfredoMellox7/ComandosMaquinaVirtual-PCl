@@ -1,9 +1,9 @@
 Para acessar sua máquina virtual pelo git = na área de trabalho ( inicial do seu computador, dar um git bash) e depois digitar ssh ubuntu@ip da máquina virtual( ir no oracle,ir em instâncias, entrar na sua e clicar para copiar o ip público ),e pronto. 
-htop = para ver como a máquina está( visualizar em tempo real o andamento da bicha ).
+htop = para ver como a máquina está( visualizar em tempo real o andamento da máquina ).
 voltar para o git.
 sudo apt update = atualiza a máquina com o ubuntu.
 **Ping baixo = conexão boa( latência )
-sudo apt install apache2 = instala os pacotes remanescentes . ( sei lá na real, mas funcionou.)
+sudo apt install apache2 = instala os pacotes remanescentes .
 sudo apt install firewalld = liberar dentro do servidor( a permissão para os outros entrarem, eu acho).
 sudo firewall-cmd --zone=public --permanent --add-port=80/tcp = habilita a porta 80 ( HTTP ).
 sudo firewall-cmd --zone=public --permanent --add-port=443/tcp = HABILITA A PORTA 443 ( HTTPS ).
@@ -11,7 +11,7 @@ sudo firewall-cmd --reload = recarrega as permissões( Para permitir conectar ).
 
 **Para acessar sua máquina virtual = ssh ubuntu@( IP da  máquina virtual = ir no oracle,ir em instâncias, entrar na sua e clicar para copiar o ip público).
 Comandos :
-cd para entrar nos diretórios( pastas ) = cd /var depois cd www e depois cd html.
+cd para entrar nos diretórios( pastas ) = cd /var/www/html.
 ls = lista( mostra ) o que tem dentro ( aperte e entenderá).
 ls -la = listagem detalhada ( mostra o grupo de permisão do contesto atual, mostra o grupo de permissão fora da pasta )
 **root é o usuário admin do sistema linux( o mais poderoso).
@@ -46,6 +46,7 @@ sleep(10);
 unset($largeString);
 
 echo "Finish\n\nMemory usage: approximately " . ( memory_get_usage() / 1024 / 1024) . " MB\n";
+
 dar um esc e digitar :wq para adicionar o conteúdo.
 dar um htop no terminal.( irá aparecer os gráficos ).
 ir no oracle, pegar o ip da sua instância, abrir nova guia e colar **obs : colar os números e junto com eles digitar /memory.php
